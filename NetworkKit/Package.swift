@@ -27,7 +27,10 @@ let package = Package(
         .target(
             name: "NetworkKitObjc",
             dependencies: [],
-            publicHeadersPath: "."
+            publicHeadersPath: ".",
+            linkerSettings: [
+                .unsafeFlags(["-fsanitize=address"])
+            ]
         ),
         .testTarget(
             name: "NetworkKitSwiftTests",
